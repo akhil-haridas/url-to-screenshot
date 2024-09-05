@@ -26,11 +26,8 @@ const ScreenshotApi = ({ toggleComponent }) => {
 
         try {
             const response = await fetch(apiUrl);
-            if (response.ok) {
-                setScreenshotUrl(apiUrl);
-            } else {
-                console.error("Failed to capture screenshot");
-            }
+            if (response.ok) setScreenshotUrl(apiUrl);
+            else console.error("Failed to capture screenshot");
         } catch (error) {
             console.error("Error while fetching the screenshot:", error);
         }
