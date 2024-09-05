@@ -1,6 +1,7 @@
 import React from 'react'
+import html2canvas from "html2canvas";
 
-const Html2Canvas = () => {
+const Html2Canvas = ({ toggleComponent }) => {
     const ToCaptureRef = React.useRef();
 
     const captureScreenshot = () => {
@@ -39,6 +40,7 @@ const Html2Canvas = () => {
                 src="https://images.pexels.com/photos/2694037/pexels-photo-2694037.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
             />
             <button onClick={captureScreenshot}>ScreenShot</button>
+            <button onClick={() => toggleComponent("Menu")}>Back</button>
         </div>
     );
 
