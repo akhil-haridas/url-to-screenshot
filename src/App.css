@@ -1,9 +1,10 @@
-#root {
+#root,
+body {
   margin: 0;
   padding: 0;
 }
 
-.MenuWrapper{
+.MenuWrapper {
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -12,7 +13,7 @@
   gap: 20px;
 }
 
-.MenuWrapper > button {
+.MenuWrapper>button {
   background-color: transparent;
   border: 2px solid black;
   border-radius: 12px;
@@ -21,7 +22,7 @@
   cursor: pointer;
 }
 
-.MenuWrapper > button:hover{
+.MenuWrapper>button:hover {
   background-color: black;
   color: #fff;
 }
