@@ -76,3 +76,9 @@ body {
   align-items: center;
   justify-content: center;
 }
+.errorSpan{
+  color: white;
+  background: red;
+  padding: 6px 24px 6px 24px;
+  border-radius: 16px;
+}

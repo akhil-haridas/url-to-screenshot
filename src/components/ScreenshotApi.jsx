@@ -1,14 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { isValidUrl } from "../utils/utils";
 
 const ScreenshotApi = ({ toggleComponent }) => {
     const [websiteUrl, setWebsiteUrl] = useState("");
+    const [error, setError] = useState(false);
     const [screenshotUrl, setScreenshotUrl] = useState(null); // To store the screenshot URL
 
-    const handleInputChange = (event) => setWebsiteUrl(event.target.value);
+    const handleInputChange = (event) => {
+        setWebsiteUrl(event.target.value);
+        if (!isValidUrl(event.target.value) && event.target.value !== "") {
+            setError(true);
+        } else {
+            setError(false);
+        }
+    };
 
     const onHitUrl = async () => {
-        if (!websiteUrl) {
-            alert("Please enter a valid website URL!");
+        if (!websiteUrl || !isValidUrl(websiteUrl)) {
+            setError(true);
             return;
         }
 
@@ -28,8 +37,8 @@ const ScreenshotApi = ({ toggleComponent }) => {
     };
 
     return (
-        <div className='ScreenshotWrapper'>
-            <div className='inputWrapper'>
+        <div className="ScreenshotWrapper">
+            <div className="inputWrapper">
                 <input
                     type="text"
                     placeholder="Enter website URL"
@@ -38,10 +47,14 @@ const ScreenshotApi = ({ toggleComponent }) => {
                 />
                 <button onClick={onHitUrl}>SCREENSHOT</button>
             </div>
-
-            <div className='screenshotDisplay'>
+            {error && <span className="errorSpan">Please enter a valid website URL!</span>}
+            <div className="screenshotDisplay">
                 {screenshotUrl && (
-                    <img src={screenshotUrl} alt="Website Screenshot" style={{ maxWidth: '70%' }} />
+                    <img
+                        src={screenshotUrl}
+                        alt="Website Screenshot"
+                        style={{ maxWidth: "70%" }}
+                    />
                 )}
             </div>
         </div>
