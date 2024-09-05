@@ -4,7 +4,14 @@ import './App.css'
 function App() {
 
   return (
-    <h1>Hello World</h1>
+    <div className='MenuWrapper'>
+      <button>
+        HTML 2 Canvas
+      </button>
+      <button>
+        Screenshot API
+      </button>
+    </div>
   )
 }
 
